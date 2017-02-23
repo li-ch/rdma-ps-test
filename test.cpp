@@ -2,7 +2,7 @@
 #include <cstring>
 #include <iostream>
 #include <sys/time.h>
-#include <unistd.h> 
+#include <unistd.h>
 #include "buf_list.h"
 #include <chrono>
 using namespace std;
@@ -11,18 +11,17 @@ using namespace amber::rdma;
 
 const int max_packet_size = (1 << 20);
 const int SND_NUM = 1e5;
-const int CLI_NUM = 2;
-const int SVR_NUM = 2;
+const int CLI_NUM = 1;
+const int SVR_NUM = 1;
 const int QP_NUM = 2;
 const int SERVER_SLEEP = 600;
 
 
-const char* svr_ip[] = {"172.16.18.197","172.16.18.198"};//{"100.88.65.7" ,"100.88.65.8"};
+const char* svr_ip[] = {"10.40.199.200","10.40.199.201"};
 const char* svr_port[] = {"51234", "53214"};
-const char* cli_ip[] = {"172.16.18.205","172.16.18.207"};//{"100.88.65.9" ,"100.88.65.10"}; 
+const char* cli_ip[] = {"10.40.199.202","10.40.199.203"};
 
 int sz;
-
 
 void Client()
 {
@@ -110,15 +109,15 @@ void Server()
 int main(int argc, char* argv[])
 {
     if (argc == 1)
-    {   
+    {
         puts("Client");
         Client();
-    }   
+    }
     else
-    {   
+    {
         puts("Server");
         Server();
-    }   
+    }
     puts("End");
     return 0;
 }
