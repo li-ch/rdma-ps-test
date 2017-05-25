@@ -300,10 +300,10 @@ void RDMA_Server::Accept(int idx)
         throw std::system_error(errno, std::system_category());
     }
 
-    if (SetQPTimeout(m_local_info[idx].local_cm_id->qp)) 
-    {
-        throw std::system_error(errno, std::system_category());
-    }
+    // if (SetQPTimeout(m_local_info[idx].local_cm_id->qp)) 
+    // {
+    //     throw std::system_error(errno, std::system_category());
+    // }
 
     if (SetQPTimeout(m_remote_info[m_sz].remote_cm_id->qp)) 
     {
